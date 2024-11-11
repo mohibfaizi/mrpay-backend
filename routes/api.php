@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PackageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -13,5 +14,10 @@ Route::controller(PackageController::class)->group(function(){
     Route::post('/packages','store');
     Route::get('/packages/{package}','show');
     Route::patch('/packages/{package}','update');
+});
+
+Route::controller(AuthController::class)->group(function(){
+    Route::post('/auth/signin','signin');
+    Route::post('/auth/signin/google','signinWithGoogle');
 });
 
